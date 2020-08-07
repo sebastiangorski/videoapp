@@ -1,6 +1,9 @@
 {
   "name": "video-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "This app allows users to save their favourite videos found on the Internet. The app is currently supporting YouTube and Vimeo videos.",
+  "author": "Sebastian Górski (gorski.work)",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

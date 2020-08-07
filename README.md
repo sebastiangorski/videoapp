@@ -1,27 +1,29 @@
-# VideoApp
+# Video App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
+This app allows users to save their favourite videos found on the Internet. The app is currently supporting YouTube and Vimeo videos.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-## Code scaffolding
+```bash
+pip install foobar
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+```python
+import foobar
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+foobar.pluralize('word') # returns 'words'
+foobar.pluralize('goose') # returns 'geese'
+foobar.singularize('phenomena') # returns 'phenomenon'
+```
 
-## Running unit tests
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Please make sure to update tests as appropriate.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
