@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from '../../services/list.service';
+import { MatDialog } from '@angular/material/dialog';
+import { WarningPopupComponent } from '../popups/warning-popup/warning-popup.component';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +10,24 @@ import { ListService } from '../../services/list.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService,
+              private matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  setListToList() {
+  openWarningPopup(): void {
+    const dialogRef = this.matDialog.open(WarningPopupComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      // Result potwierdza wyczyszczenie arejki z filmami
+    });
+  }
+
+  setListToList(): void {
     this.listService.setListDisplayStyle(false);
   }
 
-  setListToGrid() {
+  setListToGrid(): void {
     this.listService.setListDisplayStyle(true);
   }
 

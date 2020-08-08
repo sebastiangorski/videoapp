@@ -5,20 +5,29 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { InfoPopupComponent } from './components/popups/info-popup/info-popup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { WarningPopupComponent } from './components/popups/warning-popup/warning-popup.component';
 
 
 
 @NgModule({
   declarations: [
       HeaderComponent,
-      FooterComponent
+      FooterComponent,
+      InfoPopupComponent,
+      WarningPopupComponent
   ],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule
-  ],
+    entryComponents: [
+       InfoPopupComponent
+    ],
+    imports: [
+        CommonModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatDialogModule
+    ],
   exports: [
     HeaderComponent,
     FooterComponent

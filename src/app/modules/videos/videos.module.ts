@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [SearchListComponent, SearchComponent, ListComponent],
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatListModule,
         MatPaginatorModule,
         MatSelectModule,
+        MatDialogModule,
         FormsModule,
         ReactiveFormsModule,
     ]
