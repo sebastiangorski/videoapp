@@ -2,8 +2,16 @@
   width: 50%;
 }
 
+.help-icon {
+  margin-right: 10px;
+}
+
 .input-form {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &_buttons {
+    margin-left: 20px;
+  }
 }

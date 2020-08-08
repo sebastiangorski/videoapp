@@ -1,0 +1,51 @@
+.single-video-card {
+  margin-bottom: 20px;
+}
+
+.video-buttons {
+  display: flex;
+  justify-content: space-evenly;
+
+    mat-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+}
+
+.single-video-list {
+  width: 100%;
+}
+
+.video-list-thumbnail {
+  height: 50px;
+  margin-right: 20px;
+}
+
+.single-video-list {
+
+  &__item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__buttons {
+    margin-left: auto;
+  }
+
+}
+
+.list-options {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .sorting {
+    margin-left: 10px;
+  }
+
+  .pagination {
+    margin-left: auto;
+  }
+}
