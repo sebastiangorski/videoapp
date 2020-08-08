@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { InfoPopupComponent } from '../../../../common/components/popups/info-popup/info-popup.component';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(public matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+
+  openInfoPopup(): void {
+    this.matDialog.open(InfoPopupComponent);
+  }
 }

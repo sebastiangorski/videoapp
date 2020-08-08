@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>UWAGA</h1>
+<div mat-dialog-content>
+    Czy napewno chcesz usunąć wszystkie filmy? Tej czynności nie można cofnąć!
+</div>
+<div mat-dialog-actions>
+    <button mat-button cdkFocusInitial (click)="cancelPopup()">Anuluj</button>
+    <button mat-button color="warn" [mat-dialog-close]="true">Ok</button>
+</div>
