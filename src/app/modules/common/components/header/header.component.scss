@@ -2,3 +2,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+.buttons {
+  margin-left: 20px;
+
+  button {
+    margin-right: 10px;
+  }
+}

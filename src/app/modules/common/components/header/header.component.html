@@ -2,13 +2,17 @@
     <mat-toolbar color="primary" class="header">
         <div class="header header_logo">
             <span>Video App</span>
+            <div class="buttons">
+                <button mat-raised-button>Lista demo</button>
+                <button mat-raised-button color="warn">Usuń wszystkie filmy</button>
+            </div>
         </div>
         <div class="header header_icons">
             <button mat-icon-button aria-label="Icon-button with list icon">
-                <mat-icon>list</mat-icon>
+                <mat-icon (click)="setListToList()">list</mat-icon>
             </button>
             <button mat-icon-button aria-label="Icon-button with list icon">
-                <mat-icon>view_module</mat-icon>
+                <mat-icon (click)="setListToGrid()">view_module</mat-icon>
             </button>
         </div>
     </mat-toolbar>
