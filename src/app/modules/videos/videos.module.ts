@@ -12,7 +12,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [SearchListComponent, SearchComponent, ListComponent],
@@ -27,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatListModule,
         MatPaginatorModule,
         MatSelectModule,
-        ReactiveFormsModule
+        FormsModule,
+        ReactiveFormsModule,
     ]
 })
 export class VideosModule { }

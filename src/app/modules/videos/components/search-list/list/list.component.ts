@@ -9,10 +9,10 @@ import { FormControl } from '@angular/forms';
 })
 export class ListComponent implements OnInit {
   grid: boolean = true;
-  filters = new FormControl();
+  // filters = new FormControl();
   filtersList: string[] = ['Ulubione', 'YouTube', 'Vimeo'];
 
-  sorting = new FormControl();
+  // sorting = new FormControl();
   sortingList: string[] = ['Ostatnio dodane', 'Najstarsze'];
 
   constructor(private listService: ListService) { }

@@ -57,7 +57,7 @@
             <div class="filter">
                 <mat-form-field appearance="fill">
                     <mat-label>Filtruj</mat-label>
-                    <mat-select [formControl]="filters" multiple>
+                    <mat-select multiple>
                         <mat-option *ngFor="let filter of filtersList" [value]="filter">{{filter}}</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -65,7 +65,7 @@
             <div class="sorting">
                 <mat-form-field appearance="fill">
                     <mat-label>Sortuj</mat-label>
-                    <mat-select [formControl]="sorting">
+                    <mat-select>
                         <mat-option *ngFor="let sort of sortingList" [value]="sort">{{sort}}</mat-option>
                     </mat-select>
                 </mat-form-field>
