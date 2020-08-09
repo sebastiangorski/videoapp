@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from '../../../../common/services/list.service';
+import { ListStyleService } from '../../../../common/services/list-style.service';
+import { ListService } from '../../../services/list.service';
 import { FormControl } from '@angular/forms';
+import { YouTubeVideo } from '../../../../common/models/youtube.model';
+import { VimeoVideo } from '../../../../common/models/vimeo.model';
 
 @Component({
   selector: 'app-list',
@@ -15,10 +18,23 @@ export class ListComponent implements OnInit {
   // sorting = new FormControl();
   sortingList: string[] = ['Ostatnio dodane', 'Najstarsze'];
 
-  constructor(private listService: ListService) { }
+  demoList: (YouTubeVideo | VimeoVideo)[];
+
+  constructor(private listStyleService: ListStyleService,
+              private listService: ListService) {
+  }
 
   ngOnInit(): void {
-    this.listService.isGridList.subscribe((isGrid: boolean) => this.grid = isGrid);
+    this.listStyleService.isGridList.subscribe((isGrid: boolean) => this.grid = isGrid);
+    this.getDemoList();
+  }
+
+  getDemoList(): void {
+    this.demoList = this.listService.getDemoList();
+  }
+
+  likeVideo(): void {
+
   }
 
 }

@@ -4,12 +4,12 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ListService {
+export class ListStyleService {
   public isGridList = new Subject();
 
   constructor() { }
 
-  setListDisplayStyle(isGrid: boolean) {
+  setListDisplayStyle(isGrid: boolean): void {
     this.isGridList.next(isGrid);
   }
 }

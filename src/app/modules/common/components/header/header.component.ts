@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from '../../services/list.service';
+import { ListStyleService } from '../../services/list-style.service';
 import { MatDialog } from '@angular/material/dialog';
 import { WarningPopupComponent } from '../popups/warning-popup/warning-popup.component';
 
@@ -10,7 +10,7 @@ import { WarningPopupComponent } from '../popups/warning-popup/warning-popup.com
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private listService: ListService,
+  constructor(private listStyleService: ListStyleService,
               private matDialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -24,11 +24,11 @@ export class HeaderComponent implements OnInit {
   }
 
   setListToList(): void {
-    this.listService.setListDisplayStyle(false);
+    this.listStyleService.setListDisplayStyle(false);
   }
 
   setListToGrid(): void {
-    this.listService.setListDisplayStyle(true);
+    this.listStyleService.setListDisplayStyle(true);
   }
 
 }
