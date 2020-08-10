@@ -1,8 +1,7 @@
 export interface VimeoVideo {
     type: string;
-    id: string;
-    name: string;
     videoID: string;
+    name: string;
     pictures: {
         sizes: {
             width: number;

@@ -4,6 +4,7 @@ import { ListService } from '../../../services/list.service';
 import { FormControl } from '@angular/forms';
 import { YouTubeVideo } from '../../../../common/models/youtube.model';
 import { VimeoVideo } from '../../../../common/models/vimeo.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -18,7 +19,8 @@ export class ListComponent implements OnInit {
   // sorting = new FormControl();
   sortingList: string[] = ['Ostatnio dodane', 'Najstarsze'];
 
-  demoList: (YouTubeVideo | VimeoVideo)[];
+  videosList: (YouTubeVideo | VimeoVideo)[];
+  videosList$: BehaviorSubject<(YouTubeVideo | VimeoVideo)[]>
 
   constructor(private listStyleService: ListStyleService,
               private listService: ListService) {
@@ -26,15 +28,21 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listStyleService.isGridList.subscribe((isGrid: boolean) => this.grid = isGrid);
-    this.getDemoList();
+    this.listService.videosList$.subscribe(videoList => this.videosList = videoList);
   }
 
-  getDemoList(): void {
-    this.demoList = this.listService.getDemoList();
+  getVideosList(): void {
+    this.listService.videosList$.subscribe(videoList => this.videosList = videoList);
   }
 
   likeVideo(): void {
 
+  }
+
+  removeVideo(videoID: string): void {
+    const removeIndex = this.videosList.map(video => video.videoID).indexOf(videoID);
+    this.videosList.splice(removeIndex, 1);
+    this.listService.updateList(this.videosList);
   }
 
 }

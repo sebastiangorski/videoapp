@@ -1,6 +1,5 @@
 export interface YouTubeVideo {
     type: string;
-    id: string;
     videoID: string;
     snippet: {
         title: string;

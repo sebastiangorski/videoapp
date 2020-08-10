@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { YouTubeVideo } from '../../common/models/youtube.model';
 import { VimeoVideo } from '../../common/models/vimeo.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
 
-  public videosList: (YouTubeVideo | VimeoVideo)[];
-  public demoList: (YouTubeVideo | VimeoVideo)[] = [
+  public videosList$: BehaviorSubject<(YouTubeVideo | VimeoVideo)[]> = new BehaviorSubject<(YouTubeVideo | VimeoVideo)[]>([]);
+
+  demoList: (YouTubeVideo | VimeoVideo)[] = [
     {
       type: 'youtube',
-      id: '1',
       videoID: 'ODDTeIxFpyA',
       snippet: {
         title: 'YouTube Video Title 1',
@@ -29,10 +30,10 @@ export class ListService {
         likeCount: '456',
       },
       addedAt: new Date('08/01/2020'),
+      favorite: true,
     },
     {
       type: 'youtube',
-      id: '2',
       videoID: 'oLb5ZxQXJkU',
       snippet: {
         title: 'YouTube Video Title 2',
@@ -53,7 +54,6 @@ export class ListService {
     },
     {
       type: 'vimeo',
-      id: '3',
       videoID: '934461428',
       name: 'Vimeo Video Title 1',
       pictures: {
@@ -77,7 +77,6 @@ export class ListService {
     },
     {
       type: 'vimeo',
-      id: '4',
       videoID: '936041761',
       name: 'Vimeo Video Title 2',
       pictures: {
@@ -103,7 +102,19 @@ export class ListService {
 
   constructor() { }
 
-  public getDemoList(): (YouTubeVideo | VimeoVideo)[] {
-    return this.demoList;
+  public loadDemoList(): (YouTubeVideo | VimeoVideo)[] {
+    this.videosList$.next(this.demoList);
+    return;
   }
+
+  public clearList(): (YouTubeVideo | VimeoVideo)[] {
+    this.videosList$.next([]);
+    return;
+  }
+
+  public updateList(videosList): (YouTubeVideo | VimeoVideo)[] {
+    this.videosList$.next(videosList);
+    return;
+  }
+
 }
