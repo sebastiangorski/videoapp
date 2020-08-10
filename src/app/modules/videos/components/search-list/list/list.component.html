@@ -1,24 +1,25 @@
 <!-- Grid style -->
 <div class="row" *ngIf="grid">
-    <div class="col-lg-4">
+    <div class="col-lg-4" *ngFor="let video of videosList">
         <div class="single-video-card">
             <mat-card>
                 <mat-card-header>
-                    <mat-card-title>Video 1 Title
-                    </mat-card-title>
-                    <mat-card-subtitle>999 wyświetleń | 125 polubień</mat-card-subtitle>
+                    <mat-card-title>{{video.type === 'youtube' ? video.snippet.title : video.name}}</mat-card-title>
+                    <mat-card-subtitle>{{video.type === 'youtube' ? video.statistics.viewCount : video.stats.plays}} wyświetleń | {{video.type === 'youtube' ? video.statistics.likeCount : video.metadata.connections.likes.total}} polubień</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <img mat-card-image
+                     src="{{video.type == 'youtube' ? video.snippet.thumbnails.medium.url: video.pictures.sizes.link}}"
+                     alt="{{video.type === 'youtube' ? video.snippet.title : video.name}} video thumbnail">
                 <mat-card-content>
-                    <mat-chip-list aria-label="Fish selection">
-                        <mat-chip color="primary" selected>Dodano: 01/08/2020</mat-chip>
+                    <mat-chip-list aria-label="Date selection">
+                        <mat-chip color="primary" selected>Dodano: {{ video.addedAt | date }}</mat-chip>
                     </mat-chip-list>
                 </mat-card-content>
                 <mat-card-actions>
                     <div class="video-buttons">
                         <mat-icon color="primary">play_circle_filled</mat-icon>
-                        <mat-icon color="accent">favorite_border</mat-icon>
-                        <mat-icon>delete</mat-icon>
+                        <mat-icon color="accent">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+                        <mat-icon (click)="removeVideo(video.videoID)">delete</mat-icon>
                     </div>
                 </mat-card-actions>
             </mat-card>
@@ -29,18 +30,20 @@
 <!-- List style -->
 <div class="row" *ngIf="!grid">
     <div class="single-video-list">
-        <mat-list>
+        <mat-list *ngFor="let video of videosList">
             <mat-list-item>
                 <div class="single-video-list__item">
-                    <img class="video-list-thumbnail" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    <img class="video-list-thumbnail"
+                         src="{{video.type == 'youtube' ? video.snippet.thumbnails.medium.url: video.pictures.sizes.link}}"
+                         alt="{{video.type === 'youtube' ? video.snippet.title : video.name}} video thumbnail">
                     <div class="single-video-list__info">
-                        <div mat-line>Video 1 Title</div>
-                        <div mat-line>999 wyświetleń | 125 polubień</div>
-                        <div mat-line>Dodano: 01/08/2020</div>
+                        <div mat-line>{{video.type === 'youtube' ? video.snippet.title : video.name}}</div>
+                        <div mat-line>{{video.type === 'youtube' ? video.statistics.viewCount : video.stats.plays}} wyświetleń | {{video.type === 'youtube' ? video.statistics.likeCount : video.metadata.connections.likes.total}} polubień</div>
+                        <div mat-line>Dodano: {{ video.addedAt | date }}</div>
                     </div>
                     <div class="single-video-list__buttons">
                         <mat-icon color="primary">play_circle_filled</mat-icon>
-                        <mat-icon color="accent">favorite_border</mat-icon>
+                        <mat-icon color="accent">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
                         <mat-icon>delete</mat-icon>
                     </div>
                 </div>
@@ -51,13 +54,13 @@
 </div>
 
 <!-- Filters, Sorting, Pagination -->
-<div class="row">
+<div class="row" *ngIf="videosList">
     <div class="col-lg-12">
         <div class="list-options">
             <div class="filter">
                 <mat-form-field appearance="fill">
                     <mat-label>Filtruj</mat-label>
-                    <mat-select multiple>
+                    <mat-select [(ngModel)]="selectedFilter" (change)="filterList()">
                         <mat-option *ngFor="let filter of filtersList" [value]="filter">{{filter}}</mat-option>
                     </mat-select>
                 </mat-form-field>
