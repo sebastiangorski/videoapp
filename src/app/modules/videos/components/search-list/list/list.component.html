@@ -60,7 +60,7 @@
             <div class="filter">
                 <mat-form-field appearance="fill">
                     <mat-label>Filtruj</mat-label>
-                    <mat-select multiple>
+                    <mat-select [(ngModel)]="selectedFilter" (change)="filterList()">
                         <mat-option *ngFor="let filter of filtersList" [value]="filter">{{filter}}</mat-option>
                     </mat-select>
                 </mat-form-field>

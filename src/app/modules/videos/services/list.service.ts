@@ -103,7 +103,7 @@ export class ListService {
   constructor() { }
 
   public loadDemoList(): (YouTubeVideo | VimeoVideo)[] {
-    this.videosList$.next(this.demoList);
+    this.videosList$.next([...this.demoList]);
     return;
   }
 
@@ -113,7 +113,7 @@ export class ListService {
   }
 
   public updateList(videosList): (YouTubeVideo | VimeoVideo)[] {
-    this.videosList$.next(videosList);
+    this.videosList$.next([...videosList]);
     return;
   }
 

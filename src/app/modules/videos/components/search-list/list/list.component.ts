@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
   grid: boolean = true;
   // filters = new FormControl();
   filtersList: string[] = ['Ulubione', 'YouTube', 'Vimeo'];
+  selectedFilter;
 
   // sorting = new FormControl();
   sortingList: string[] = ['Ostatnio dodane', 'Najstarsze'];
@@ -43,6 +44,10 @@ export class ListComponent implements OnInit {
     const removeIndex = this.videosList.map(video => video.videoID).indexOf(videoID);
     this.videosList.splice(removeIndex, 1);
     this.listService.updateList(this.videosList);
+  }
+
+  filterList(): void {
+    console.log(this.selectedFilter);
   }
 
 }
