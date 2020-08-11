@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
   sortingList: string[] = ['Ostatnio dodane', 'Najstarsze'];
 
   videosList: (YouTubeVideo | VimeoVideo)[];
+  demoList: (YouTubeVideo | VimeoVideo)[];
 
   constructor(private listStyleService: ListStyleService,
               private listService: ListService) {
@@ -29,7 +30,19 @@ export class ListComponent implements OnInit {
     this.listService.videosList$.subscribe(videoList => this.videosList = videoList);
   }
 
-  likeVideo(): void {
+  likeVideo(videoID): void {
+      const id = this.videosList.findIndex(video => video.videoID === videoID);
+      const videosArray = [...this.videosList];
+      videosArray.map(video => {
+        if (video.favorite === false) {
+          videosArray[id] = {...videosArray[id], favorite: true};
+          this.listService.updateList(videosArray);
+        }
+        if (video.favorite === true) {
+          videosArray[id] = {...videosArray[id], favorite: false};
+          this.listService.updateList(videosArray);
+        }
+      });
 
   }
 

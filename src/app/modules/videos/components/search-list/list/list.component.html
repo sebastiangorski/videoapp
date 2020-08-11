@@ -18,7 +18,7 @@
                 <mat-card-actions>
                     <div class="video-buttons">
                         <mat-icon color="primary">play_circle_filled</mat-icon>
-                        <mat-icon color="accent">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+                        <mat-icon color="accent" (click)="likeVideo(video.videoID)">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
                         <mat-icon (click)="removeVideo(video.videoID)">delete</mat-icon>
                     </div>
                 </mat-card-actions>
@@ -44,7 +44,7 @@
                     <div class="single-video-list__buttons">
                         <mat-icon color="primary">play_circle_filled</mat-icon>
                         <mat-icon color="accent">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
-                        <mat-icon>delete</mat-icon>
+                        <mat-icon (click)="removeVideo(video.videoID)">delete</mat-icon>
                     </div>
                 </div>
                 <mat-divider></mat-divider>
