@@ -29,7 +29,7 @@ export class ListService {
         viewCount: '23423',
         likeCount: '456',
       },
-      addedAt: new Date('08/01/2020'),
+      addedAt: new Date('2020-08-17T01:11:00'),
       favorite: true,
     },
     {
@@ -50,7 +50,7 @@ export class ListService {
         viewCount: '223423',
         likeCount: '4456',
       },
-      addedAt: new Date('08/02/2020'),
+      addedAt: new Date('2020-07-17T03:24:00'),
     },
     {
       type: 'vimeo',
@@ -73,7 +73,7 @@ export class ListService {
           }
         }
       },
-      addedAt: new Date('08/01/2020'),
+      addedAt: new Date('2020-08-12T04:21:00'),
     },
     {
       type: 'vimeo',
@@ -96,7 +96,7 @@ export class ListService {
           }
         }
       },
-      addedAt: new Date('08/03/2020'),
+      addedAt: new Date('2020-08-08T02:44:00'),
     }
   ];
 

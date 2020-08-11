@@ -54,13 +54,13 @@
 </div>
 
 <!-- Filters, Sorting, Pagination -->
-<div class="row" *ngIf="videosList">
+<div class="row">
     <div class="col-lg-12">
         <div class="list-options">
             <div class="filter">
                 <mat-form-field appearance="fill">
                     <mat-label>Filtruj</mat-label>
-                    <mat-select [(ngModel)]="selectedFilter" (change)="filterList()">
+                    <mat-select (selectionChange)="filterList($event)">
                         <mat-option *ngFor="let filter of filtersList" [value]="filter">{{filter}}</mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -68,7 +68,7 @@
             <div class="sorting">
                 <mat-form-field appearance="fill">
                     <mat-label>Sortuj</mat-label>
-                    <mat-select>
+                    <mat-select (selectionChange)="sortList($event)">
                         <mat-option *ngFor="let sort of sortingList" [value]="sort">{{sort}}</mat-option>
                     </mat-select>
                 </mat-form-field>

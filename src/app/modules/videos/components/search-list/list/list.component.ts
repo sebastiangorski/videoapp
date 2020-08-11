@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListStyleService } from '../../../../common/services/list-style.service';
 import { ListService } from '../../../services/list.service';
-import { FormControl } from '@angular/forms';
 import { YouTubeVideo } from '../../../../common/models/youtube.model';
 import { VimeoVideo } from '../../../../common/models/vimeo.model';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -13,15 +11,10 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ListComponent implements OnInit {
   grid: boolean = true;
-  // filters = new FormControl();
-  filtersList: string[] = ['Ulubione', 'YouTube', 'Vimeo'];
-  selectedFilter;
-
-  // sorting = new FormControl();
+  filtersList: string[] = ['Brak', 'Ulubione'];
   sortingList: string[] = ['Ostatnio dodane', 'Najstarsze'];
 
   videosList: (YouTubeVideo | VimeoVideo)[];
-  videosList$: BehaviorSubject<(YouTubeVideo | VimeoVideo)[]>
 
   constructor(private listStyleService: ListStyleService,
               private listService: ListService) {
@@ -29,7 +22,7 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listStyleService.isGridList.subscribe((isGrid: boolean) => this.grid = isGrid);
-    this.listService.videosList$.subscribe(videoList => this.videosList = videoList);
+    this.getVideosList();
   }
 
   getVideosList(): void {
@@ -46,8 +39,34 @@ export class ListComponent implements OnInit {
     this.listService.updateList(this.videosList);
   }
 
-  filterList(): void {
-    console.log(this.selectedFilter);
-  }
+  filterList(selectedFilter): void {
+    if (selectedFilter.value === 'Ulubione') {
+      const filteredByFavorites = this.videosList.filter(video => {
+        return video.favorite;
+      });
+      this.listService.updateList(filteredByFavorites);
+    }
+
+    if (selectedFilter.value === 'Brak') {
+      this.listService.loadDemoList();
+      this.getVideosList();
+      }
+    }
+
+    sortList(selectedSorting): void {
+      if (selectedSorting.value === 'Ostatnio dodane') {
+        const sortedByNewst = this.videosList.sort((a, b) => {
+          return (b.addedAt as any) - (a.addedAt as any);
+        });
+        this.listService.updateList(sortedByNewst);
+      }
+
+      if (selectedSorting.value === 'Najstarsze') {
+        const sortedByOldest = this.videosList.sort((a, b) => {
+          return (a.addedAt as any) - (b.addedAt as any);
+        });
+        this.listService.updateList(sortedByOldest);
+      }
+    }
 
 }
