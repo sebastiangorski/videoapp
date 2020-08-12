@@ -1,6 +1,7 @@
 export interface YouTubeVideo {
     type: string;
     videoID: string;
+    items: [{}];
     snippet: {
         title: string;
         publishedAt: Date;

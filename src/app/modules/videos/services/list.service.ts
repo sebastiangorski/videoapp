@@ -14,6 +14,7 @@ export class ListService {
     {
       type: 'youtube',
       videoID: 'ODDTeIxFpyA',
+      items: [{}],
       snippet: {
         title: 'YouTube Video Title 1',
         publishedAt: new Date(),
@@ -35,6 +36,7 @@ export class ListService {
     {
       type: 'youtube',
       videoID: 'oLb5ZxQXJkU',
+      items: [{}],
       snippet: {
         title: 'YouTube Video Title 2',
         publishedAt: new Date(),
@@ -51,17 +53,18 @@ export class ListService {
         likeCount: '4456',
       },
       addedAt: new Date('2020-07-17T03:24:00'),
+      favorite: false,
     },
     {
       type: 'vimeo',
       videoID: '934461428',
       name: 'Vimeo Video Title 1',
       pictures: {
-        sizes: {
+        sizes: [{
           width: 1920,
           height: 1080,
           link: 'https://i.vimeocdn.com/video/934461428_1920x1080.jpg?r=pad'
-        }
+        }]
       },
       stats: {
         plays: 15323,
@@ -74,17 +77,18 @@ export class ListService {
         }
       },
       addedAt: new Date('2020-08-12T04:21:00'),
+      favorite: false,
     },
     {
       type: 'vimeo',
       videoID: '936041761',
       name: 'Vimeo Video Title 2',
       pictures: {
-        sizes: {
+        sizes: [{
           width: 1920,
           height: 1080,
           link: 'https://i.vimeocdn.com/video/936041761_640x360.jpg?r=pad'
-        }
+        }]
       },
       stats: {
         plays: 52323,
@@ -97,6 +101,7 @@ export class ListService {
         }
       },
       addedAt: new Date('2020-08-08T02:44:00'),
+      favorite: false,
     }
   ];
 

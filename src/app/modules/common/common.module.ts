@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { InfoPopupComponent } from './components/popups/info-popup/info-popup.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { WarningPopupComponent } from './components/popups/warning-popup/warning-popup.component';
+import { VideoEmbedComponent } from './components/popups/video-embed/video-embed.component';
 
 
 
@@ -16,7 +17,8 @@ import { WarningPopupComponent } from './components/popups/warning-popup/warning
       HeaderComponent,
       FooterComponent,
       InfoPopupComponent,
-      WarningPopupComponent
+      WarningPopupComponent,
+      VideoEmbedComponent
   ],
     entryComponents: [
        InfoPopupComponent

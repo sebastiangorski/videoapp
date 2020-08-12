@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AppCommonModule } from './modules/common/common.module';
 import { VideosModule } from './modules/videos/videos.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { VideosModule } from './modules/videos/videos.module';
     BrowserAnimationsModule,
     CommonModule,
     AppCommonModule,
-    VideosModule
+    VideosModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
