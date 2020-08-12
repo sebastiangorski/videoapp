@@ -8,7 +8,8 @@
                     <mat-card-subtitle>{{video.type === 'youtube' ? video.statistics.viewCount : video.stats.plays}} wyświetleń | {{video.type === 'youtube' ? video.statistics.likeCount : video.metadata.connections.likes.total}} polubień</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image
-                     src="{{video.type == 'youtube' ? video.snippet.thumbnails.medium.url: video.pictures.sizes.link}}"
+                     (click)="watchVideo(video)"
+                     src="{{video.type === 'youtube' ? video.snippet.thumbnails.medium.url: video.pictures.sizes[0].link}}"
                      alt="{{video.type === 'youtube' ? video.snippet.title : video.name}} video thumbnail">
                 <mat-card-content>
                     <mat-chip-list aria-label="Date selection">
@@ -17,8 +18,8 @@
                 </mat-card-content>
                 <mat-card-actions>
                     <div class="video-buttons">
-                        <mat-icon color="primary">play_circle_filled</mat-icon>
-                        <mat-icon color="accent" (click)="likeVideo(video.videoID)">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+                        <mat-icon (click)="watchVideo(video)" color="primary">play_circle_filled</mat-icon>
+                        <mat-icon color="accent" (click)="likeVideo(video)">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
                         <mat-icon (click)="removeVideo(video.videoID)">delete</mat-icon>
                     </div>
                 </mat-card-actions>
@@ -34,7 +35,8 @@
             <mat-list-item>
                 <div class="single-video-list__item">
                     <img class="video-list-thumbnail"
-                         src="{{video.type == 'youtube' ? video.snippet.thumbnails.medium.url: video.pictures.sizes.link}}"
+                         (click)="watchVideo(video)"
+                         src="{{video.type === 'youtube' ? video.snippet.thumbnails.medium.url: video.pictures.sizes[0].link}}"
                          alt="{{video.type === 'youtube' ? video.snippet.title : video.name}} video thumbnail">
                     <div class="single-video-list__info">
                         <div mat-line>{{video.type === 'youtube' ? video.snippet.title : video.name}}</div>
@@ -42,7 +44,7 @@
                         <div mat-line>Dodano: {{ video.addedAt | date }}</div>
                     </div>
                     <div class="single-video-list__buttons">
-                        <mat-icon color="primary">play_circle_filled</mat-icon>
+                        <mat-icon (click)="watchVideo(video)" color="primary">play_circle_filled</mat-icon>
                         <mat-icon color="accent">{{video.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
                         <mat-icon (click)="removeVideo(video.videoID)">delete</mat-icon>
                     </div>
