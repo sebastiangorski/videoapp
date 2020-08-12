@@ -1,6 +1,6 @@
 # Video App
 
-This app allows users to save their favourite videos found on the Internet. The app is currently supporting YouTube and Vimeo videos.
+This app allows users to save their favorite videos found on the Internet. The app is currently supporting YouTube and Vimeo videos.
 
 ## Usage
 
