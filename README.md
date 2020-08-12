@@ -2,28 +2,14 @@
 
 This app allows users to save their favourite videos found on the Internet. The app is currently supporting YouTube and Vimeo videos.
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
-
 ## Usage
 
-```python
-import foobar
+This repo is not providing API credentials for YouTube or Vimeo. However, you can test the app by loading a hardcoded list of videos (just click the button).
 
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+If you wish to create your own credentials, do so and just update the environment.ts file with your API keys.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

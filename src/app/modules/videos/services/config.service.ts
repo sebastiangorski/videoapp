@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { environmentDev } from '../../../../environments/environment-dev';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class ConfigService {
   private config: {} = {};
 
   constructor() {
-    this.config = environmentDev;
+    this.config = environment;
   }
 
   get(name?: string) {
